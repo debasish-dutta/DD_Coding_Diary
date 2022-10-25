@@ -29,7 +29,7 @@ export default function Home({ posts, podcasts }) {
 
 export async function getStaticProps() {
   // try {
-  const posts = (await getPosts()) || [];
+  const posts = (await getPosts()) || '';
   console.log(posts)
 // } catch (error) {
 //   console.log(error)
