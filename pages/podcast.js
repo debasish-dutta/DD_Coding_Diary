@@ -4,10 +4,9 @@ import { getPodcasts } from '../services';
 
 export default function Podcast({ podcasts }) {
   return (
-    <div className="container mx-auto px-10 mb-8">
-      <Head>
-        <title>DD Coding Diary</title>
-        <link rel="icon" href="/favicon.ico" />
+    <div className="px-10 m-10">
+    <Head>
+        <title>All Podcast Episodes || DD Coding Diary</title>
       </Head>
       <div className='grid grid-cols-1 lg:grid-cols-12 gap-8'>
         <div className='lg:col-span-8 col-span-1'>

@@ -4,10 +4,9 @@ import { getPosts } from '../services';
 
 export default function Blog({ posts }) {
   return (
-    <div className="container mx-auto px-10 mb-8">
+    <div className="px-10 m-10">
       <Head>
-        <title>DD Coding Diary</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>All Blog Posts || DD Coding Diary</title>
       </Head>
       <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
         <div className='lg:col-span-8 col-span-1'>

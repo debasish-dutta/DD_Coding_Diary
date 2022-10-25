@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React from 'react'
 import { getPosts, getBlogPost } from '../../services';
 import { AdjacentBlogPosts, BlogPostCom, Categories, PostWidget, Comments, CommentsForm, Loader } from '../../components/index';
@@ -12,6 +13,9 @@ const BlogPost = ({ Blogposts }) => {
 
     return (
     <div className='container mx-auto px-auto mb-8'>
+        <Head>
+            <title>{Blogposts.title} || DD Coding Diary</title>
+        </Head>
         <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
             <div className='col-span-1 lg:col-span-8'>
                 {/* <BlogPostDetails /> */}

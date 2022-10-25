@@ -1,10 +1,13 @@
 export { default as PostCard } from './PostCard';
+export { default as FeaturedPostCard } from './FeaturedPostCard';
 export { default as PodcastCard } from './PodcastCard';
+export { default as FeaturedPodcastCard } from './FeaturedPodcastCard';
 export { default as Categories } from './Categories';
 export { default as PostWidget } from './PostWidget';
 export { default as AdjacentPostCard } from './AdjacentPostCard';
 export { default as AdjacentBlogPosts } from './AdjacentBlogPosts';
 export { default as NavBar } from './NavBar';
+export { default as Poly } from './Poly';
 export { default as Footer } from './Footer';
 export { default as BottomFooter } from './BottomFooter';
 export { default as Layout } from './Layout';

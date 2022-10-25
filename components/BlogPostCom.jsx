@@ -1,8 +1,9 @@
 import React from 'react'
+import Link from 'next/link';
 import moment from 'moment';
 
 const BlogPostCom = ({ blogPost }) => {
-  
+  console.log(blogPost)
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
 
@@ -48,18 +49,31 @@ const BlogPostCom = ({ blogPost }) => {
         <img 
           src={blogPost.featuredImage.url}
           alt={blogPost.title}
-          className='object-top h-full rounded-t-lg'
+          className='object-none h-72 w-full rounded-lg'
         />
       </div>
       <div className='px-4 lg:px-0'>
-        <div className='flex items-center mb-8 w-full'>
-        <div className='font-medium text-gray-700'>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" class="w-6 h-6">
+        <div className='flex items-center  mb-8 w-full'>
+        <div className='flex items-center font-medium text-gray-700'>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 stroke-1.5 hover:fill-amber-500 hover:stroke-cyan-700">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
             </svg>
-            <span>
+            <span className='cursor-default px-1 text-blue-700 hover:text-pink-600'>
               {moment(blogPost.createdAt).format('MMM DD, YYYY')}
             </span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 stroke-1.5 hover:fill-amber-500 hover:stroke-cyan-700">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 6h.008v.008H6V6z" />
+            </svg>
+            <div className='flex items-center'>
+            {blogPost.categories.map((cat) => (
+                <Link key={cat.slug} href={`/category/${cat.slug}`}> 
+                  <span className='cursor-pointer pl-0.5 pr-1.5 text-blue-700 hover:text-pink-600'>
+                    {cat.name}
+                  </span>
+                </Link>
+                ))}
+            </div>
           </div>
         </div>
         <h1 className='mb-8 text-3xl font-semibold'>{blogPost.title}</h1>

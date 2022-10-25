@@ -144,6 +144,114 @@ export const getSimilarPodcasts = async (categories, slug) => {
   return result.podcasts;
 }
 
+export const getCategoryPost = async (slug) => {
+  const query = gql`
+    query GetCategoryPost($slug: String!) {
+      postsConnection(where: {categories_some: {slug: $slug}}) {
+        edges {
+          cursor
+          node {
+            createdAt
+            slug
+            title
+            excerpt
+            featuredImage {
+              url
+            }
+            categories {
+              name
+              slug
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { slug });
+
+  return result.postsConnection.edges;
+};
+
+export const getCategoryPodcast = async (slug) => {
+  const query = gql`
+    query GetCategoryPodcast($slug: String!) {
+      podcastsConnection(where: {categories_some: {slug: $slug}}) {
+        edges {
+          cursor
+          node {
+            createdAt
+            slug
+            title
+            excerpt
+            featuredImage {
+              url
+            }
+            categories {
+              name
+              slug
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { slug });
+
+  return result.podcastsConnection.edges;
+};
+
+
+export const getFeaturedPosts = async () => {
+  const query = gql`
+    query GetFeaturedPost() {
+      posts(where: {featuredPost: true}, last: 5) {
+        featuredImage {
+          url
+        }
+        title
+        excerpt
+        slug
+        createdAt
+        categories {
+          name
+          slug
+        }
+      }
+    }   
+  `;
+
+  const result = await request(graphqlAPI, query);
+    console.log(result)
+  return result.posts;
+};
+
+export const getFeaturedPodcasts = async () => {
+  const query = gql`
+    query GetFeaturedPodcast() {
+      podcasts(where: {featuredPodcast: true}, last: 5) {
+        featuredImage {
+          url
+        }
+        title
+        excerpt
+        slug
+        createdAt
+        categories {
+          name
+          slug
+        }
+      }
+    }   
+  `;
+
+  const result = await request(graphqlAPI, query);
+
+  return result.podcasts;
+};
+
+
 export const getBlogPost = async (slug) => {
   const query = gql `
   query getBlogPost($slug: String!) {
