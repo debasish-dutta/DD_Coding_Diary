@@ -1,5 +1,6 @@
 import React from 'react'
 import Head from 'next/head';
+import Image from 'next/image'
 
 const Custon404 = () => {
   return (
@@ -7,6 +8,7 @@ const Custon404 = () => {
         <Head>
         <title>404: Page Not Found || DD Coding Diary</title>
       </Head>
+      <img src="/fof.jpg" alt="404:Error" className='w-full' />
     </div>
   )
 }

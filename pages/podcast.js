@@ -13,6 +13,7 @@ export default function Podcast({ podcasts }) {
         {/* {podcasts.map((podcast, index) => (
             <PodcastCard key={index} podcast={podcast.node} />
           ))} */}
+          <img src='/soon.jpg' alt='' className='w-full' />
         </div>
         <div className='lg:col-span-4 col-span-1'>
           <div className="lg:sticky relative top-8">

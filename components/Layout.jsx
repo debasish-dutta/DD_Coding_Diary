@@ -28,9 +28,12 @@ function setTitle(path) {
   } else if(path.includes("blog")) {
     img = false;
     return ("All Blogs")
+  } else if(path.includes("/")) {
+  img = false;
+  return ("HOME")
   } else {
     img = false;
-    return ("Home")
+    return ("404: Error")
   }
 }
 
