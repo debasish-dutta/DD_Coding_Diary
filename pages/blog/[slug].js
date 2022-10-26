@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import React from 'react'
 import { getPosts, getBlogPost } from '../../services';
-import { AdjacentBlogPosts, BlogPostCom, Categories, PostWidget, Comments, CommentsForm, Loader } from '../../components/index';
+import { AdjacentBlogPosts, BlogPostCom, Categories, PostWidget, Comments, CommentsForm, Loader, Poly } from '../../components/index';
 import { useRouter } from 'next/router';
 
 const BlogPost = ({ Blogposts }) => {
@@ -10,8 +10,10 @@ const BlogPost = ({ Blogposts }) => {
     if (router.isFallback) {
         return <Loader />;
     }
-
+    console.log()
     return (
+        <>
+      {/* <Poly title={ Blogposts.title } cover={ Blogposts.featuredImage.url } /> */}
     <div className='container mx-auto px-auto mb-8'>
         <Head>
             <title>{Blogposts.title} || DD Coding Diary</title>
@@ -33,6 +35,7 @@ const BlogPost = ({ Blogposts }) => {
         </div>
         
     </div>
+    </>
   )
 }
 
@@ -51,6 +54,6 @@ export async function getStaticPaths() {
     const Blogposts = await getPosts();
     return {
       paths: Blogposts.map(({ node: { slug } }) => ({ params: { slug } })),
-      fallback: true,
+      fallback: false,
     };
 }

@@ -38,7 +38,7 @@ const PostCard = ({ podcast }) => {
                     </g>
                     <defs>
                         <filter id="filter0_d_111_8" x="108" y="63.1204" width="238" height="267.759" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                            <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                             <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
                             <feOffset dy="4"/>
                             <feGaussianBlur stdDeviation="2"/>

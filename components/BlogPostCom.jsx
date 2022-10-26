@@ -3,7 +3,6 @@ import Link from 'next/link';
 import moment from 'moment';
 
 const BlogPostCom = ({ blogPost }) => {
-  console.log(blogPost)
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
 

@@ -31,6 +31,20 @@ export const getPosts = async () => {
     return result.postsConnection.edges;
 }
 
+export const getPostName = async (slug) => {
+  const query = gql`
+  query getPostName($slug: String!) {
+    posts(where: {slug: $slug}) {
+      title
+    }
+  }
+  `;
+
+  const result = await request(graphqlAPI, query, { slug });
+
+  return result.posts[0].title;
+};
+
 export const getPodcasts = async () => {
   const query = gql`
   query MyPodQuery {
@@ -59,6 +73,19 @@ export const getPodcasts = async () => {
   return result.podcastsConnection.edges;
 }
 
+export const getPodcastName = async (slug) => {
+  const query = gql`
+  query getCategoryName($slug: String!) {
+    podcasts(where: {slug: $slug}) {
+      title
+    }
+  }
+  `;
+
+  const result = await request(graphqlAPI, query, { slug });
+
+  return result.podcasts[0].title;
+};
 
 export const getRecentPosts = async () => {
   const query = gql`
@@ -202,6 +229,19 @@ export const getCategoryPodcast = async (slug) => {
   return result.podcastsConnection.edges;
 };
 
+export const getCategoryName = async (slug) => {
+  const query = gql`
+  query getCategoryName($slug: String!) {
+    categories(where: {slug: $slug}) {
+      name
+    }
+  }
+  `;
+
+  const result = await request(graphqlAPI, query, { slug });
+
+  return result.categories[0].name;
+};
 
 export const getFeaturedPosts = async () => {
   const query = gql`
@@ -223,7 +263,6 @@ export const getFeaturedPosts = async () => {
   `;
 
   const result = await request(graphqlAPI, query);
-    console.log(result)
   return result.posts;
 };
 
@@ -250,7 +289,6 @@ export const getFeaturedPodcasts = async () => {
 
   return result.podcasts;
 };
-
 
 export const getBlogPost = async (slug) => {
   const query = gql `

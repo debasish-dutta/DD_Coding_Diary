@@ -1,15 +1,20 @@
-import React from 'react';
 import Head from 'next/head';
+import React from 'react';
+import { useRouter } from 'next/router';
 
-import { getCategories, getCategoryPost, getCategoryPodcast } from '../../services';
-import { PostCard, PodcastCard, Categories } from '../../components';
+import { getCategories, getCategoryPost, getCategoryPodcast, getCategoryName } from '../../services';
+import { PostCard, PodcastCard, Categories, Loader } from '../../components/index';
 
-const CategoryPost = ({ posts }) => {
-  console.log(posts.node.name)
+const CategoryPost = ({ posts, name }) => {
+  const router = useRouter();
+
+  if (router.isFallback) {
+      return <Loader />;
+  }
   return (
     <div className="container mx-auto px-10 mb-8">
       <Head>
-        <title>{posts.node.name} || DD Coding Diary</title>
+        <title>{ name } || DD Coding Diary</title>
       </Head>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="col-span-1 lg:col-span-8">
@@ -30,13 +35,14 @@ export default CategoryPost;
 
 // Fetch data at build time
 export async function getStaticProps({ params }) {
-  const posts = await getCategoryPost(params.slug);
+  const post = await getCategoryPost(params.slug);
   const podcasts = await getCategoryPodcast(params.slug);
+  const name = await getCategoryName(params.slug);
 
-  console.log(posts)
-  console.log(podcasts)
+  const posts = post || podcasts;
+
   return {
-    props: {posts} || { podcasts },
+    props: {posts, name},
   };
 }
 

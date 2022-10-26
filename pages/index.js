@@ -1,8 +1,9 @@
 import Head from 'next/head';
-import { FeaturedPostCard, FeaturedPodcastCard, Categories, Poly } from '../components/index';
-import { getPosts, getFeaturedPosts, getFeaturedPodcasts } from '../services';
+import { FeaturedPostCard, FeaturedPodcastCard } from '../components/index';
+import { getFeaturedPosts, getFeaturedPodcasts } from '../services';
 
 export default function Home({ posts, podcasts }) {
+  // console.log(posts)
   return (
     <div className="container px-10 m-10">
       <Head>
@@ -29,12 +30,13 @@ export default function Home({ posts, podcasts }) {
 
 export async function getStaticProps() {
   // try {
-  const posts = (await getPosts()) || '';
-  console.log(posts)
+  const posts = (await getFeaturedPosts()) || [];
+  const podcasts = (await getFeaturedPodcasts()) || [];
+  // console.log(posts, podcasts)
 // } catch (error) {
 //   console.log(error)
 // }
 return {
-  props: { posts }
+  props: { posts, podcasts }
 }
 }

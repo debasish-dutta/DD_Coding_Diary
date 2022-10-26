@@ -46,15 +46,15 @@ const Wrapper = styled.header`
 `;
 
 
-const Poly = ({ children, title, date, cover }) => (
+const Poly = ({ title, cover }) => (
 
     <Wrapper>
         {cover && 
-      <img src={cover} /> }
-        <h1>{title}</h1>
-        <h3>{date}</h3>
+      <img src={cover}  className='w-full blur-[1.5px] object-fill'/> }
+        <h1 className='flex uppercase font-extrabold text-3xl items-center justify-center h-full z-[10000] text-white'>{title}</h1>
+        {/* <h3>{date}</h3> */}
   
-        {children && <p>{children}</p>}
+        {/* {children && <p>{children}</p>} */}
     </Wrapper>
   );
 const polyClip = {
