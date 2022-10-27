@@ -53,7 +53,6 @@ const BlogPostCom = ({ blogPost }) => {
         return modifiedText;
     }
   };
-  console.log(blogPost.content.html)
   
   return (
     <div className='bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8'>
@@ -61,7 +60,7 @@ const BlogPostCom = ({ blogPost }) => {
         <img 
           src={blogPost.featuredImage.url}
           alt={blogPost.title}
-          className='object-none h-72 w-full rounded-lg'
+          className='object-none h-48 md:h-72 w-full rounded-t-lg'
         />
       </div>
       <div className='px-4 lg:px-0'>

@@ -27,10 +27,13 @@ function setTitle(path) {
     return ("All Podcasts")
   } else if(path.includes("blog")) {
     img = false;
-    return ("All Blogs")
+    return ("All Blogs") 
+  } else if(path.includes("category")) {
+    img = false;
+    return ("Categories")
   } else if(path.includes("/")) {
-  img = false;
-  return ("HOME")
+    img = false;
+    return ("HOME")
   } else {
     img = false;
     return ("404: Error")

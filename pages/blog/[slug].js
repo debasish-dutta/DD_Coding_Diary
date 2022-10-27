@@ -14,7 +14,7 @@ const BlogPost = ({ Blogposts }) => {
     return (
         <>
       {/* <Poly title={ Blogposts.title } cover={ Blogposts.featuredImage.url } /> */}
-    <div className='container mx-auto px-auto mb-8'>
+    <div className='lg:px-10 lg:m-10 md:px-8 md:m-8 sm:px-4 sm:m-6 px-2 m-2'>
         <Head>
             <title>{Blogposts.title} || DD Coding Diary</title>
         </Head>

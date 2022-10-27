@@ -12,7 +12,7 @@ const CategoryPost = ({ posts, name }) => {
       return <Loader />;
   }
   return (
-    <div className="container mx-auto px-10 mb-8">
+    <div className="lg:px-10 lg:m-10 md:px-8 md:m-8 sm:px-4 sm:m-6 px-2 m-2">
       <Head>
         <title>{ name } || DD Coding Diary</title>
       </Head>
