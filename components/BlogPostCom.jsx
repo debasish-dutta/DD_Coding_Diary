@@ -18,9 +18,21 @@ const BlogPostCom = ({ blogPost }) => {
       if (obj.underline) {
         modifiedText = (<u key={index}>{text}</u>);
       }
+      if (obj.link) {
+        modifiedText = (<Link key={index} href={href}>{text}</Link>);
+      }
+      if (obj.code) {
+        modifiedText = (<p className='' key={index}>{text}</p>) ;
+      }
     }
 
     switch (type) {
+      case 'heading-one':
+        return <h2 key={index} className="text-2xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h2>;
+      case 'paragraph':
+      case 'heading-two':
+        return <h3 key={index} className="text-xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
+      case 'paragraph':
       case 'heading-three':
         return <h3 key={index} className="text-xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
       case 'paragraph':
@@ -41,6 +53,7 @@ const BlogPostCom = ({ blogPost }) => {
         return modifiedText;
     }
   };
+  console.log(blogPost.content.html)
   
   return (
     <div className='bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8'>
@@ -76,11 +89,13 @@ const BlogPostCom = ({ blogPost }) => {
           </div>
         </div>
         <h1 className='mb-8 text-3xl font-semibold'>{blogPost.title}</h1>
-        {blogPost.content.raw.children.map((typeObj, index) => {
+        {/* {blogPost.content.raw.children.map((typeObj, index) => {
           const children = typeObj.children.map((item, itemIndex) => getContentFragment(itemIndex, item.text, item))
 
           return getContentFragment(index, children, typeObj, typeObj.type)
-        })}
+        })} */}
+        <article className='prose prose-slate mx-auto lg:prose-lg' 
+          dangerouslySetInnerHTML={{ __html: blogPost.content.html }} />
       </div>
     </div>
   )

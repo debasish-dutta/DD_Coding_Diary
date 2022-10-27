@@ -303,6 +303,7 @@ export const getBlogPost = async (slug) => {
       }
       content {
         raw
+        html
       }
       categories {
         name

@@ -10,7 +10,7 @@ class MyDocument extends Document {
     return (
       <Html lang='en'>
         <Head>
-          <meta name="viewport" content="width=device-width,minimum-scale=1, initial-scale=1" />
+          <link rel="icon" type="image/x-icon" href="/favicon.ico"></link>
         </Head>
         <body>
           <Main />
