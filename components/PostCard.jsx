@@ -5,11 +5,11 @@ import Link from 'next/link';
 const PostCard = ({ post }) => {
   return (
     <div className='bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8'>
-        <div className='relative overflow-hidden shadow-md pb-80 mb-6'>
+        <div className='relative overflow-hidden shadow-md pb-40 sm:pb-60 md:pb-80 mb-6'>
           <img 
             src={post.featuredImage.url}
             alt={post.title}
-            className="object-top absolute h-80 w-full object-cover shadow-lg rounded-t-lg lg:rounded-lg" 
+            className="object-top absolute h-40 sm:h-60  md:h-80 w-full object-cover shadow-lg rounded-t-lg lg:rounded-lg" 
           />
         </div>
         <h1 className='transistion duration-700 text-center mb-8 cursor-pointer 
@@ -29,8 +29,8 @@ const PostCard = ({ post }) => {
             />
             <p className='inline align-middle text-gray-700 ml-2 text-lg'>{author.name}</p> */}
           </div>
-          <div className='font-medium flex items-center text-gray-700'>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+          <div className='font-medium flex items-center text-gray-700 '>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="ml-2 sm:ml-4 md:m-0 w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
             </svg>
             <span className='px-1'>

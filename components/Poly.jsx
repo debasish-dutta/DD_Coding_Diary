@@ -32,17 +32,32 @@ const gradient = {
     // eslint-disable-next-line
     rightToLeft: `linear-gradient(45deg, ${colors.background.light} 0%, ${colors.background.dark} 100%)`,
   };
+
+const breakpoints = {
+  xs: '400px',
+  s: '600px',
+  m: '900px',
+  l: '1200px',
+};
+
 const Wrapper = styled.header`
-  -webkit-clip-path: polygon(100% 0, 0 0, 50% 100%);
-  clip-path: polygon(100% 0, 0 0, 50% 100%);
-  
+  margin-bottom: 40px;
+  -webkit-clip-path: polygon(100% 0, 0 0, 0 70%, 50% 100%, 100% 70%);
+  clip-path: polygon(100% 0, 0 0, 0 70%, 50% 100%, 100% 70%);
+  @media (max-width: ${breakpoints.s}) {
+    -webkit-clip-path: polygon(100% 0, 0 0, 0 90%, 50% 100%, 100% 90%);
+    clip-path: polygon(100% 0, 0 0, 0 90%, 50% 100%, 100% 90%);
+  }
   background: ${gradient.rightToLeft};
-  height: 300px;
-  
+  height: 250px;
+  @media (max-width: ${breakpoints.m}) {
+    height: 250px;
+  }
+  @media (max-width: ${breakpoints.s}) {
+    height: 200px;
+  }
   position: relative;
   overflow: hidden;
-
-  margin-bottom: 10px;
 `;
 
 
@@ -51,7 +66,7 @@ const Poly = ({ title, cover }) => (
     <Wrapper>
         {cover && 
       <img src={cover}  className='w-full blur-[1.5px] object-fill'/> }
-        <h1 className='flex uppercase font-extrabold text-3xl items-center justify-center h-full z-[10000] text-white'>{title}</h1>
+        <h1 className='flex uppercase font-extrabold text-lg sm:text-2xl lg:text-3xl items-center justify-center h-full z-[10000] text-white'>{title}</h1>
         {/* <h3>{date}</h3> */}
   
         {/* {children && <p>{children}</p>} */}
