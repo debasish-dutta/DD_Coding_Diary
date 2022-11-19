@@ -47,7 +47,7 @@ const Layout = ({children}) => {
   return (
     <>
       <NavBar />
-      <Poly title={ setTitle(path)} cover={img ? children.props.Blogposts.featuredImage.url : ''} />
+      {/* <Poly title={ setTitle(path)} cover={img ? children.props.Blogposts.featuredImage.url : ''} /> */}
       {children}
       <Footer />
       <BottomFooter />
