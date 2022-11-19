@@ -9,9 +9,11 @@ const Footer = () => {
   <div class="container mx-auto md:px-4">
     <div class="flex flex-wrap text-left lg:text-left">
       <div class="w-full lg:w-4/12 px-4">
-      <div class="grid w-full grid-rows-3 gap-2 md:gap-4 px-4">
-  <div>
+      <div class="grid w-full grid-rows-4 gap-2 md:gap-4 px-4">
+  <div className='shrink'>
     <h4 class="fonat-semibold text-blueGray-700 text-3xl">Let's keep in touch!</h4>
+  </div>
+  <div className=''>
     <p class="text-gray-800">
       <strong>Sign up for my newsletter </strong> 
        to stay upto date with my content, news and special offers!
