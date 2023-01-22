@@ -16,7 +16,7 @@ const NavBar = () => {
     <nav className=' rounded bg-blue-200 '>
         <div className=' flex flex-wrap justify-between items-center w-ful'>
             <Link href='/'>
-                <div className=' flex items-center '>
+                <div className=' flex items-center cursor-pointer'>
                     {/* <Image height={6} width={6} src="https://flowbite.com/docs/images/logo.svg" className="mr-3 h-6 sm:h-9" alt="DD Logo" /> */}
                     <svg className="m-1 h-6 md:h-16 lg:h-18" viewBox="0 0 1721 1710" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_d_125_17)">
@@ -1003,7 +1003,7 @@ const NavBar = () => {
       </filter>
     </defs>
                     </svg>
-                    <span className='self-center cursor-pointer '>
+                    <span className='self-center '>
                     <svg
     // width={8291}
     // height={35}

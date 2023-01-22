@@ -9,17 +9,14 @@ const Footer = () => {
   <div class="container mx-auto md:px-4">
     <div class="flex flex-wrap text-left lg:text-left">
       <div class="w-full lg:w-4/12 px-4">
-      <div class="grid w-full grid-rows-4 gap-2 md:gap-4 px-4">
-  <div className='shrink'>
-    <h4 class="fonat-semibold text-blueGray-700 text-3xl">Let's keep in touch!</h4>
-  </div>
+      <div class="flex w-full flex-col gap-2 md:gap-4 px-4">
   <div className=''>
+    <h4 class="fonat-semibold text-blueGray-700 text-3xl">Let's keep in touch!</h4>
     <p class="text-gray-800">
-      <strong>Sign up for my newsletter </strong> 
-       to stay upto date with my content, news and special offers!
+      <strong>Sign up for my newsletter </strong> to stay updated date with my content, news and special offers!
     </p>
   </div>
-  <div class="">
+  <div class="shrink">
           <form class="w-full text-blueGray-600">
             <label for="email" class="sr-only"> Email </label>
 
@@ -41,7 +38,7 @@ const Footer = () => {
           </form>
         </div>
 
-  <div class="">
+  <div class="shrink">
     <a href="https://www.twitter.com/ddmasterdon" target="_blank">
       <button class="align-center mr-2 h-10 w-10 items-center justify-center rounded-full bg-white font-normal shadow-lg outline-none focus:outline-none hover:animate-[bounce_1.5s_ease-out_3]" type="button">
       {/* <a target="_blank" href="https://twitter.com" className="mx-2 h-12 w-12 align-center items-center justify-center rounded-full bg-white shadow-lg outline-none">
@@ -82,7 +79,7 @@ const Footer = () => {
                 <a class="text-black hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="/">Home</a>
               </li>
               <li>
-                <a class="text-black hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="/about">About Us</a>
+                <a class="text-black hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="/about">About Me</a>
               </li>
               <li>
                 <a class="text-black hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="/blog">Blog</a>
@@ -96,13 +93,13 @@ const Footer = () => {
             <span class="block uppercase text-blueGray-800 text-sm font-semibold mb-2">Others</span>
             <ul class="list-unstyled">
               <li>
-                <a class="text-black hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="/License">MIT License</a>
+                <a class="text-black hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="/privacy">Privacy Policy</a>
               </li>
               <li>
-                <a class="text-black hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="/T&C">Terms &amp; Conditions</a>
+                <a class="text-black hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="/terms"> Terms &amp; Conditions</a>
               </li>
               <li>
-                <a class="text-black hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="/Privacy Policy">Privacy Policy</a>
+                <a class="text-black hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="/sitemap">Sitemap</a>
               </li>
               <li>
                 <a class="text-black hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="/contact">Contact Me</a>

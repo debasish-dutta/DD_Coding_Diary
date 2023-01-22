@@ -309,6 +309,7 @@ export const getBlogPost = async (slug) => {
         name
         slug
       }
+      cont
     }
   }
 `;
