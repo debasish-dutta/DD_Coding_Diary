@@ -11,7 +11,7 @@ const Footer = () => {
       <div class="w-full lg:w-4/12 px-4">
       <div class="flex w-full flex-col gap-2 md:gap-4 px-4">
   <div className=''>
-    <h4 class="fonat-semibold text-blueGray-700 text-3xl">Let's keep in touch!</h4>
+    <h4 class="font-semibold text-blueGray-700 text-3xl">Let's keep in touch!</h4>
     <p class="text-gray-800">
       <strong>Sign up for my newsletter </strong> to stay updated date with my content, news and special offers!
     </p>
@@ -20,16 +20,16 @@ const Footer = () => {
           <form class="w-full text-blueGray-600">
             <label for="email" class="sr-only"> Email </label>
 
-            <div class="border rounded border-black/10 hover:border-black/50 focus:border-black p-2 sm:flex sm:items-center">
+            <div class="p-2 sm:flex sm:items-center">
               <input
-                class="h-6 w-full border-none bg-transparent text-sm font-medium tracking-widest focus:text-blueGray-800 focus:font-bold"
+                class="h-6 w-full border-x-0 border-t-0 border-b-2 border-b-black/10 hover:border-b-black/50 focus:border-b-black  bg-transparent text-sm font-medium tracking-widest focus:text-blueGray-800 focus:font-bold"
                 type="email"
                 id="email"
                 placeholder="Enter your email"
               />
 
               <button
-                class="mt-1 h-6 w-full px-2 py-0.5 text-blueGray-800 font-bold text-xs transition duration-500 ease-in-out rounded-full bg-blue-200 md:bg-transparent hover:bg-blue-600 hover:text-xs hover:text-white hover:shadow-md tracking-wide sm:ml-4 sm:mt-0 sm:w-auto sm:flex-shrink-0"
+                class="mt-2 h-6 w-full px-2 py-0.5 text-blueGray-800 font-bold text-xs transition duration-500 ease-in-out rounded-full bg-blue-200 md:bg-transparent hover:bg-blue-600 hover:text-xs hover:text-white hover:shadow-md tracking-wide sm:ml-4 sm:mt-0 sm:w-auto sm:flex-shrink-0"
                 type="submit"
               >
                 Subscribe
@@ -38,7 +38,13 @@ const Footer = () => {
           </form>
         </div>
 
-  <div class="shrink">
+ 
+</div>
+      </div>
+      <div class=" w-full lg:w-3/12 px-4 my-4 lg:m-0">
+      <div class="w-full px-4 lg:mx-4">
+      <span class="block uppercase text-blueGray-700 text-sm font-semibold">Socials</span>
+      <div class="shrink mt-4">
     <a href="https://www.twitter.com/ddmasterdon" target="_blank">
       <button class="align-center mr-2 h-10 w-10 items-center justify-center rounded-full bg-white font-normal shadow-lg outline-none focus:outline-none hover:animate-[bounce_1.5s_ease-out_3]" type="button">
       {/* <a target="_blank" href="https://twitter.com" className="mx-2 h-12 w-12 align-center items-center justify-center rounded-full bg-white shadow-lg outline-none">
@@ -64,16 +70,13 @@ const Footer = () => {
         <FontAwesomeIcon icon={faYoutube} className='fa-brands fa-youtube text-[1.75rem] text-red-500'/>
       </button>
     </a>
+    </div>
   </div>
-</div>
       </div>
-      <div class="w-full lg:w-2/12">
-
-      </div>
-      <div class="w-full lg:w-6/12 px-4">
-        <div class="flex flex-wrap items-top mb-6">
-          <div class="w-full lg:w-4/12 px-4 ml-auto">
-            <span class="block uppercase text-blueGray-800 text-sm font-semibold mb-2">Useful Links</span>
+      <div class="w-full lg:w-5/12 px-4">
+        <div class="flex flex-nowrap items-top mb-6">
+          <div class="w-1/2 lg:w-5/12 mr-auto px-4  ">
+            <span class="block uppercase text-blueGray-700 text-sm font-semibold my-2">Useful Links</span>
             <ul class="list-unstyled">
               <li>
                 <a class="text-black hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="/">Home</a>
@@ -89,8 +92,8 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div class="w-full lg:w-4/12 px-4">
-            <span class="block uppercase text-blueGray-800 text-sm font-semibold mb-2">Others</span>
+          <div class="w-1/2 lg:w-5/12 ml-auto px-4 ">
+            <span class="block uppercase text-blueGray-700 text-sm font-semibold my-2">Others</span>
             <ul class="list-unstyled">
               <li>
                 <a class="text-black hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="/privacy">Privacy Policy</a>
