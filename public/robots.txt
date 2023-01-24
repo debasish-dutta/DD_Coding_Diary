@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.ddcodingdiary.com
+
+# Sitemaps
+Sitemap: https://www.ddcodingdiary.com/sitemap.xml
