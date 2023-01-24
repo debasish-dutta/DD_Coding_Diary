@@ -44,7 +44,7 @@ const BlogPostCom = ({ blogPost }) => {
         return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
       case 'paragraph':
         return <p key={index} className="mb-8 leading-relaxed">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
-      case 'class':
+      case 'className':
         if (obj.children[0].type == 'code-block') {
           return <SyntaxHighlighter language={obj.className} style={anOldHope}>
             {obj.children[0].children[0].text};
@@ -106,7 +106,7 @@ const BlogPostCom = ({ blogPost }) => {
         })}
         {/* <article className='prose prose-slate mx-auto lg:prose-lg' 
           dangerouslySetInnerHTML={{ __html: blogPost.content.html }} /> */}
-        {/* <article class="prose lg:prose-xl">
+        {/* <article className="prose lg:prose-xl">
         { blogPost.cont }
         </article> */}
       </div>
