@@ -16,6 +16,9 @@ export const getPosts = async () => {
             featuredImage {
               url
             }
+            content {
+              html
+            }
             categories {
               name
               slug
@@ -300,6 +303,8 @@ export const getBlogPost = async (slug) => {
       excerpt
       featuredImage {
         url
+        height
+        width
       }
       content {
         raw
@@ -309,6 +314,7 @@ export const getBlogPost = async (slug) => {
         name
         slug
       }
+      updatedAt
     }
   }
 `;

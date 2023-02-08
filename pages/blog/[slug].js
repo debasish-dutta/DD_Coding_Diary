@@ -3,6 +3,7 @@ import React from 'react'
 import { getPosts, getBlogPost } from '../../services';
 import { AdjacentBlogPosts, BlogPostCom, Categories, PostWidget, Comments, CommentsForm, Loader, Poly } from '../../components/index';
 import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
 
 const BlogPost = ({ Blogposts }) => {
     const router = useRouter();
@@ -10,6 +11,8 @@ const BlogPost = ({ Blogposts }) => {
     if (router.isFallback) {
         return <Loader />;
     }
+    var categories = [];
+    Blogposts.categories.map((cat) => categories.push(cat.name))
     console.log()
     return (
         <>
@@ -18,6 +21,26 @@ const BlogPost = ({ Blogposts }) => {
         <Head>
             <title>{Blogposts.title} || DD Coding Diary</title>
         </Head>
+        <NextSeo
+            title={Blogposts.title + " || DD Coding Diary"}
+            description={Blogposts.excerpt}
+            canonical=""
+            openGraph={{
+                type: 'article',
+                article: {
+                    publishedTime: Blogposts.createdAt,
+                    modifiedTime: Blogposts.updatedAt,
+                    tags: categories,
+                },
+                url: "https://www.ddcodingdiary.com/" + Blogposts.slug,
+                images: {
+                    url: Blogposts.featuredImage.url,
+                    width: Blogposts.featuredImage.height,
+                    height: Blogposts.featuredImage.width,
+                    alt: Blogposts.title,
+                }
+            }}
+        />
         <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
             <div className='col-span-1 lg:col-span-8'>
                 {/* <BlogPostDetails /> */}
