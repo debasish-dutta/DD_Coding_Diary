@@ -19,13 +19,13 @@ const Footer = () => {
     }
     try {
       setLoading(true);
-      const { data } = await axios.post(`http://127.0.0.1:4000/api/email`, {email});
+      const { data } = await axios.post(`http://localhost:3001/api/registration`, {email});
       setLoading(false);
       toast.success("Email sent! Please confirm your newsletter subscription.");
     } catch (err) {
       setLoading(false);
       toast.error(
-        err.response && err.response.data.email ? err.response.data.email : err.message
+        err.response
       );
     }
   };
@@ -74,7 +74,7 @@ const Footer = () => {
       <div className=" w-full lg:w-3/12 px-4 my-4 lg:m-0">
       <div className="w-full px-4 lg:mx-4">
       <span className="block uppercase text-blueGray-700 text-sm font-semibold">Socials</span>
-      <div className="shrink mt-4">
+      <div className="shrink m-4">
     <a href="https://www.twitter.com/ddmasterdon" target="_blank">
       <button className="align-center mr-2 h-10 w-10 items-center justify-center rounded-full bg-white font-normal shadow-lg outline-none focus:outline-none hover:animate-[bounce_1.5s_ease-out_3]" type="button">
       {/* <a target="_blank" href="https://twitter.com" className="mx-2 h-12 w-12 align-center items-center justify-center rounded-full bg-white shadow-lg outline-none">
@@ -95,12 +95,15 @@ const Footer = () => {
         <FontAwesomeIcon icon={faCodepen} className='fa-brands fa-codepen text-[1.75rem] text-purple-700'/>
       </button>
     </a>
-    <a href="https://www.youtube.com" target="_blank">
+    <a href="https://www.youtube.com" target="_blank" >
       <button className="align-center mr-2 h-10 w-10 items-center justify-center rounded-full bg-white font-normal shadow-lg outline-none focus:outline-none hover:animate-[bounce_1.5s_ease-out_3]" type="button">
         <FontAwesomeIcon icon={faYoutube} className='fa-brands fa-youtube text-[1.75rem] text-red-500'/>
       </button>
     </a>
     </div>
+    <a className='mt-4 pt-4' href="https://www.buymeacoffee.com/ddmasterdon" target="_blank">
+      <img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style={{ height: '60px ', width: '217px'  }} />
+    </a>
   </div>
       </div>
       <div className="w-full lg:w-5/12 px-4">

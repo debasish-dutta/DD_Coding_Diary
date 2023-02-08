@@ -1,8 +1,35 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 export default function Contact() {
-  return (
+  
+    const submitContact = async (e) => {
+        e.preventDefault();
+        const data = {
+            "name": e.target.name.value,
+            "email": e.target.email.value,
+            "message": e.target.message.value
+        }
+        
+        if(!e.target.name.value || !e.target.email.value || !e.target.message.value) {
+          console.log('Error');
+          return toast.error('Please add all fields!!');
+        }
+        const JSONdata = JSON.stringify(data)
+        const endpoint = 'https://contact.ddcodingdiary.com/contact'
+        try {
+          const { data } = await axios.post(endpoint, JSONdata);
+          toast.success("Thank you for your message.");
+        } catch (err) {
+          toast.error(
+            err.response && err.response.data.email ? err.response.data.email : err.message
+            );
+        }
+      };
+    return (
     <div className="lg:px-10 lg:m-10 md:px-8 md:m-8 sm:px-4 sm:m-6 px-2 m-2">
       <Head>
       <title>Contact Me || DD Coding Diary</title>
@@ -10,6 +37,7 @@ export default function Contact() {
       <section className=" bg-white shadow-lg rounded-lg">
     <div className="container px-6 py-10 mx-auto">
         <div className="lg:flex lg:items-center lg:-mx-10">
+    <ToastContainer position='bottom-center' limit={1} />
             <div className="lg:w-1/2 lg:mx-10">
                 <h1 className="text-3xl font-semibold text-gray-800 capitalize lg:text-5xl">Let’s talk</h1>
 
@@ -18,25 +46,25 @@ export default function Contact() {
                     to hear from you
                 </p>
 
-                <form className="mt-12">
+                <form onSubmit={submitContact}  className="mt-12">
                     <div className="-mx-2 md:items-center md:flex">
                         <div className="flex-1 px-2">
                             <label className="block mb-2 text-sm text-gray-600 ">Full Name</label>
-                            <input type="text" placeholder="John Doe" className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md  focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                            <input type="text" name="name" placeholder="John Doe" className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md  focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
                         </div>
 
                         <div className="flex-1 px-2 mt-4 md:mt-0">
                             <label className="block mb-2 text-sm text-gray-600">Email address</label>
-                            <input type="email" placeholder="johndoe@example.com" className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                            <input type="email" name='email' placeholder="johndoe@example.com" className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
                         </div>
                     </div>
 
                     <div className="w-full mt-4">
                         <label className="block mb-2 text-sm text-gray-600">Message</label>
-                        <textarea className="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-56 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Message"></textarea>
+                        <textarea name="message" className="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-56 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Message"></textarea>
                     </div>
 
-                    <button className="w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                    <button type='submit' className="w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                         get in touch
                     </button>
                 </form>

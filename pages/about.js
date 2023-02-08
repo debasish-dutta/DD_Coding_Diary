@@ -18,8 +18,8 @@ export default function About() {
           <h2 className="title-font mb-2 text-xl font-medium text-gray-900 sm:text-2xl">This Blog</h2>
           <p className="mb-4 leading-relaxed">I started blogging to share my programming experiences. I have been programming since 2013, starting with C & C++ and later JS and PHP to understand the web. Then I moved to Python to try out scripting and Machine Learning. As I wanted to do something during my "not programming" time, I thought what's better than to write about my experiences, which led me to start this blog.</p>
           <p className='mb-8 leading-relaxed'>Currently, I am a researcher in the field of Computer Science and I code during my free time as well. ALso, I also tinker with electronics as a hobby. I'll be slowly uploading all my past and future projects here along the source code on github. Python used to be my language of choice but now I tend to stick more with C++ & Rust. I also enjoy occasional manga, anime and am a daily reader of some light novels.</p>
-          <h2 className="title-font mb-2 text-xl font-medium text-gray-900 sm:text-2xl">This Podcast</h2>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non tenetur consectetur ipsam, provident velit architecto doloremque, modi assumenda quibusdam harum cupiditate id accusamus rem impedit alias facere praesentium eaque natus.</p>
+          {/* <h2 className="title-font mb-2 text-xl font-medium text-gray-900 sm:text-2xl">This Podcast</h2> */}
+          {/* <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non tenetur consectetur ipsam, provident velit architecto doloremque, modi assumenda quibusdam harum cupiditate id accusamus rem impedit alias facere praesentium eaque natus.</p> */}
         </div>
       </div>
       </section>
