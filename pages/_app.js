@@ -1,18 +1,23 @@
 import react, { useEffect, useState } from 'react';
-import { GoogleAnalytics } from "nextjs-google-analytics";
 import { Layout } from "../components";
 import {DefaultSeo} from 'next-seo';
 import TagManager from "react-gtm-module"
+import { Analytics } from '@vercel/analytics/react'
 
 import 'tailwindcss/tailwind.css'
 import '../styles/globals.scss'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 config.autoAddCss = false
+
+const gtmID = process.env.NEXT_PUBLIC_GTM_ID;
+
 const tagManagerArgs = {
-  id:"GTM-PDN46MZ",
-}
+  gtmId: gtmID,
+};
+
 function MyApp({ Component, pageProps }) {
+  // console.log(tagManagerArgs);
   useEffect(() => {
     TagManager.initialize(tagManagerArgs)
   }, [])
@@ -76,9 +81,10 @@ function MyApp({ Component, pageProps }) {
           `,
         }}
       /> */}
-      <GoogleAnalytics measurmentId="G-BP9YN3P6HL" trackPageViews />
+      {/* <GoogleAnalytics measurmentId="G-BP9YN3P6HL" trackPageViews /> */}
 
     <Component {...pageProps} />
+    <Analytics />
   </Layout>
   )
 }

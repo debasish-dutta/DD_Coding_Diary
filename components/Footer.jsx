@@ -46,7 +46,7 @@ const Footer = () => {
   <div className="shrink">
           <form className="w-full text-blueGray-600" 
                 onSubmit={submitForm}>
-            <label for="email" className="sr-only"> Email </label>
+            <label htmlFor="email" className="sr-only"> Email </label>
 
             <div className="p-2 sm:flex sm:items-center">
               <input
