@@ -2,6 +2,7 @@ import react, { useEffect, useState } from 'react';
 import { Layout } from "../components";
 import {DefaultSeo} from 'next-seo';
 import TagManager from "react-gtm-module"
+import { Analytics } from '@vercel/analytics/react'
 
 import 'tailwindcss/tailwind.css'
 import '../styles/globals.scss'
@@ -83,6 +84,7 @@ function MyApp({ Component, pageProps }) {
       {/* <GoogleAnalytics measurmentId="G-BP9YN3P6HL" trackPageViews /> */}
 
     <Component {...pageProps} />
+    <Analytics />
   </Layout>
   )
 }
