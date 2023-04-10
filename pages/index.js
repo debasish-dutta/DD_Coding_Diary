@@ -39,6 +39,7 @@ export async function getStaticProps() {
 //   console.log(error)
 // }
 return {
-  props: { posts, podcasts }
+  props: { posts, podcasts },
+  revalidate: 25,
 }
 }
