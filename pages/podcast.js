@@ -31,6 +31,7 @@ export async function getStaticProps() {
   const podcasts = (await getPodcasts()) || [];
 
   return {
-    props: { podcasts }
+    props: { podcasts },
+    revalidate: 25,
   }
 }
