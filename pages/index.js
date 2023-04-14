@@ -29,7 +29,7 @@ export default function Home({ posts, podcasts }) {
   )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   // try {
   const posts = (await getFeaturedPosts()) || [];
   const podcasts = (await getFeaturedPodcasts()) || [];
@@ -39,6 +39,7 @@ export async function getServerSideProps() {
 //   console.log(error)
 // }
 return {
-  props: { posts, podcasts }
+  props: { posts, podcasts },
+  revalidate: 25,
 }
 }
