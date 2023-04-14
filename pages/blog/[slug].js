@@ -62,7 +62,14 @@ const BlogPost = ({ Blogposts }) => {
   )
 }
 
-export default BlogPost;
+
+export async function getStaticPaths() {
+    const Blogposts = await getPosts();
+    return {
+        paths: Blogposts.map(({ node: { slug } }) => ({ params: { slug } })),
+        fallback: false,
+    };
+}
 
 export async function getStaticProps({ params }) {
     const data = await getBlogPost(params.slug);
@@ -70,17 +77,10 @@ export async function getStaticProps({ params }) {
         props: { 
             Blogposts: data, 
         },
-    revalidate: 25,
-    };
-  }
-
-  
-
-
-export async function getStaticPaths() {
-    const Blogposts = await getPosts();
-    return {
-      paths: Blogposts.map(({ node: { slug } }) => ({ params: { slug } })),
-      fallback: false,
+        revalidate: 25,
     };
 }
+
+
+export default BlogPost;
+
