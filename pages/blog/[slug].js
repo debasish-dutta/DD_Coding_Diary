@@ -64,7 +64,7 @@ const BlogPost = ({ Blogposts }) => {
 
 export default BlogPost;
 
-export async function getServerSideProps({ params }) {
+export async function getStaticProps({ params }) {
     const data = await getBlogPost(params.slug);
     return {
         props: { 

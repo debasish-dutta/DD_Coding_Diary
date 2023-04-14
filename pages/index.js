@@ -29,7 +29,7 @@ export default function Home({ posts, podcasts }) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   // try {
   const posts = (await getFeaturedPosts()) || [];
   const podcasts = (await getFeaturedPodcasts()) || [];
