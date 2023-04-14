@@ -39,7 +39,6 @@ export async function getServerSideProps() {
 //   console.log(error)
 // }
 return {
-  props: { posts, podcasts },
-  revalidate: 25,
+  props: { posts, podcasts }
 }
 }
