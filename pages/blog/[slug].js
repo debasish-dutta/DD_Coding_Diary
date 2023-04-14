@@ -64,7 +64,7 @@ const BlogPost = ({ Blogposts }) => {
 
 export default BlogPost;
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
     const data = await getBlogPost(params.slug);
     return {
         props: { 
@@ -73,6 +73,9 @@ export async function getStaticProps({ params }) {
     revalidate: 25,
     };
   }
+
+  
+
 
 export async function getStaticPaths() {
     const Blogposts = await getPosts();
