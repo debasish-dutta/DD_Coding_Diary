@@ -18,7 +18,6 @@ const CategoryPost = ({ posts, name }) => {
       </Head>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="col-span-1 lg:col-span-8">
-          <h1 className=''>ALL { name } blogs</h1>
           {posts.map((post, index) => (
             <PostCard key={index} post={post.node} />
             ))}
@@ -44,7 +43,6 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {posts, name},
-    revalidate: 25,
   };
 }
 
@@ -55,6 +53,5 @@ export async function getStaticPaths() {
   return {
     paths: categories.map(({ slug }) => ({ params: { slug } })),
     fallback: false,
-    revalidate: 10,
   };
 }
