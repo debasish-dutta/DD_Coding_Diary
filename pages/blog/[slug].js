@@ -64,14 +64,18 @@ const BlogPost = ({ Blogposts }) => {
 
 export default BlogPost;
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
     const data = await getBlogPost(params.slug);
     return {
-      props: { 
-          Blogposts: data, 
+        props: { 
+            Blogposts: data, 
         },
+    revalidate: 25,
     };
   }
+
+  
+
 
 export async function getStaticPaths() {
     const Blogposts = await getPosts();
