@@ -31,20 +31,6 @@ const CategoryPost = ({ posts, name }) => {
     </div>
   );
 };
-export default CategoryPost;
-
-// Fetch data at build time
-export async function getStaticProps({ params }) {
-  const post = await getCategoryPost(params.slug);
-  const podcasts = await getCategoryPodcast(params.slug);
-  const name = await getCategoryName(params.slug);
-
-  const posts = post || podcasts;
-
-  return {
-    props: {posts, name},
-  };
-}
 
 // Specify dynamic routes to pre-render pages based on data.
 // The HTML is generated at build time and will be reused on each request.
@@ -55,3 +41,18 @@ export async function getStaticPaths() {
     fallback: false,
   };
 }
+
+// Fetch data at build time
+export async function getStaticProps({ params }) {
+  const post = await getCategoryPost(params.slug);
+  const podcasts = await getCategoryPodcast(params.slug);
+  const name = await getCategoryName(params.slug);
+  
+  const posts = post || podcasts;
+  
+  return {
+    props: {posts, name},
+    revalidate: 25,
+  };
+}
+export default CategoryPost;
