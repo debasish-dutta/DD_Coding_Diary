@@ -18,6 +18,9 @@ const CategoryPost = ({ posts, name }) => {
       </Head>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="col-span-1 lg:col-span-8">
+          <div className='bg-white shadow-lg rounded-lg p-0 lg:p-4 pb-4 mb-4 text-center'> 
+            <h1 className="text-xl font-semibold text-gray-800 capitalize lg:text-2xl"> { name } </h1>
+          </div>
           {posts.map((post, index) => (
             <PostCard key={index} post={post.node} />
             ))}
