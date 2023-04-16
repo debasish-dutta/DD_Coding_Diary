@@ -71,7 +71,7 @@ const BlogPostCom = ({ blogPost }) => {
         <img
           src={blogPost.featuredImage.url}
           alt={blogPost.title}
-          className='object-none h-48 md:h-72 w-full rounded-t-lg'
+          className='object-cover h-48 md:h-72 w-full rounded-t-lg'
         />
       </div>
       <div className='px-4 lg:px-0'>
