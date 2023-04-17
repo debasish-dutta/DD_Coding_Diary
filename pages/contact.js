@@ -4,31 +4,43 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
+import { submitMessage } from '../services';
+
 export default function Contact() {
   
     const submitContact = async (e) => {
         e.preventDefault();
         const data = {
-            "name": e.target.name.value,
-            "email": e.target.email.value,
-            "message": e.target.message.value
+            name: e.target.name.value,
+            email: e.target.email.value,
+            message: e.target.message.value
         }
-        
+        console.log(e.target)
         if(!e.target.name.value || !e.target.email.value || !e.target.message.value) {
           console.log('Error');
           return toast.error('Please add all fields!!');
         }
         const JSONdata = JSON.stringify(data)
-        const endpoint = 'https://contact.ddcodingdiary.com/contact'
-        try {
-          const { data } = await axios.post(endpoint, JSONdata);
-          toast.success("Thank you for your message.");
-        } catch (err) {
-          toast.error(
-            err.response && err.response.data.email ? err.response.data.email : err.message
-            );
-        }
+        const endpoint = '/api/contact'
+        // try {
+        //   const { data } = await axios.post(endpoint, JSONdata);
+        submitMessage(data)
+        .then((res) => {
+            if(res.createMessages){
+                console.log(res)
+                toast.success("Thank you for your message.");
+            }
+            
+        })
+        .catch((err) => {
+            console.log(err)
+            toast.error(
+                err.response && err.response.data.email ? err.response.data.email : err.message);
+        });
+        // } catch (err) {}
+
       };
+
     return (
     <div className="lg:px-10 lg:m-10 md:px-8 md:m-8 sm:px-4 sm:m-6 px-2 m-2">
       <Head>

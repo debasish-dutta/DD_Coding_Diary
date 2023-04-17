@@ -398,3 +398,15 @@ export const getComments = async (slug) => {
 
   return result.comments;
 }
+
+export const submitMessage = async (obj) => {
+  const result = await fetch('/api/contact', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify(obj),
+  })
+
+  return result.json()
+}
