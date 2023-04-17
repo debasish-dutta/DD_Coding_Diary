@@ -12,8 +12,6 @@ const BlogPost = ({ Blogposts }) => {
         return <Loader />;
     }
     var categories = [];
-    Blogposts.categories.map((cat) => categories.push(cat.name))
-    console.log()
     return (
         <>
       {/* <Poly title={ Blogposts.title } cover={ Blogposts.featuredImage.url } /> */}
@@ -67,7 +65,7 @@ export async function getStaticPaths() {
     const Blogposts = await getPosts();
     return {
         paths: Blogposts.map(({ node: { slug } }) => ({ params: { slug } })),
-        fallback: false,
+        fallback: true,
     };
 }
 
@@ -77,7 +75,6 @@ export async function getStaticProps({ params }) {
         props: { 
             Blogposts: data, 
         },
-        revalidate: 25,
     };
 }
 
