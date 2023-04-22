@@ -60,7 +60,8 @@ export default async function generateRssFeed() {
   //     });
   //    });
 
-  fs.mkdirSync(`${rssFolder}`, { recursive: true });
+  if (!fs.existsSync(`${rssFolder}`))
+    fs.mkdirSync(`${rssFolder}`, { recursive: true });
   fs.writeFileSync(`${rssFolder}feed.xml`, feed.rss2());
   fs.writeFileSync(`${rssFolder}feed.json`, feed.json1());
   fs.writeFileSync(`${rssFolder}feed.atom`, feed.atom1());
