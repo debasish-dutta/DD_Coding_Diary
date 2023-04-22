@@ -9,7 +9,7 @@ export default async function generateRssFeed() {
 
   const siteURL = process.env.VERCEL_URL || "localhost:3000";
   const date = new Date();
-  // const rssFolder = path.join(process.cwd(), "public/rss/");
+  const rssFolder = path.join(process.cwd(), "/public/rss");
   const author = {
     name: "Debasish Dutta",
     email: "thedemoniccoder@gmail.com",
@@ -21,6 +21,7 @@ export default async function generateRssFeed() {
     description: "A personal log of my journey of coding and tech adventures.",
     id: siteURL,
     link: siteURL,
+    language: "en",
     image: `${siteURL}/favicon.ico`,
     favicon: `${siteURL}/favicon.ico`,
     copyright: `All rights reserved ${date.getFullYear()}, Debasish Dutta`,
@@ -46,8 +47,8 @@ export default async function generateRssFeed() {
       image: post.node.featuredImage,
       date: new Date(post.node.createdAt),
     });
+    post.node.categories.map((cat) => feed.addCategory(cat.name));
   });
-
   //  allPodcasts.forEach((post) => {
   //     feed.addItem({
   //      title: post.node.title,
@@ -60,10 +61,12 @@ export default async function generateRssFeed() {
   //     });
   //    });
 
-  // if (!fs.existsSync(`${rssFolder}`))
-  //   fs.mkdirSync(`${rssFolder}`, { recursive: true });
-  fs.mkdirSync("./public/rss", { recursive: true });
-  fs.writeFileSync("./public/rss/feed.xml", feed.rss2());
-  fs.writeFileSync("./public/rss/feed.xml", feed.json1());
-  fs.writeFileSync("./public/rss/feed.xml", feed.atom1());
+  if (!fs.existsSync(`${rssFolder}`))
+    fs.mkdirSync(`${rssFolder}`, { recursive: true });
+  // if (!fs.existsSync("./public/rss"))
+  //   fs.mkdirSync("./public/rss", { recursive: true });
+  console.log(rssFolder);
+  fs.writeFileSync(`${rssFolder}/feed.xml`, feed.rss2());
+  fs.writeFileSync(`${rssFolder}/feed.json`, feed.json1());
+  fs.writeFileSync(`${rssFolder}/feed.atom`, feed.atom1());
 }
