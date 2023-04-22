@@ -1,16 +1,16 @@
-import fs from 'fs';
-import path from 'path';
-import { Feed } from 'feed';
-import { getPosts, getPodcasts } from '../services';
+import fs from "fs";
+import path from "path";
+import { Feed } from "feed";
+import { getPosts, getPodcasts } from "../services";
 
 export default async function generateRssFeed() {
- const allPosts = await getPosts();
- const allPodcasts = await getPodcasts();
- 
- const siteURL = process.env.VERCEL_URL || 'localhost:3000';
- const date = new Date();
- const rssFolder = path.join(process.cwd(), '.public/rss/');
- const author = {
+  const allPosts = await getPosts();
+  const allPodcasts = await getPodcasts();
+
+  const siteURL = process.env.VERCEL_URL || "localhost:3000";
+  const date = new Date();
+  const rssFolder = path.join(process.cwd(), "public/rss/");
+  const author = {
     name: "Debasish Dutta",
     email: "thedemoniccoder@gmail.com",
     link: "https://twitter.com/ddmasterdon",
@@ -27,41 +27,41 @@ export default async function generateRssFeed() {
     updated: date, // today's date
     generator: "Feed for Node.js",
     feedLinks: {
-      rss2: `${siteURL}/rss/feed.xml`,  // xml format
-      json: `${siteURL}/rss/feed.json`,// json fromat
-      atom: `${siteURL}/rss/feed.atom`,// atom fromat
+      rss2: `${siteURL}/rss/feed.xml`, // xml format
+      json: `${siteURL}/rss/feed.json`, // json fromat
+      atom: `${siteURL}/rss/feed.atom`, // atom fromat
     },
     author,
   });
 
- allPosts.forEach((post) => {
-     console.log();
+  allPosts.forEach((post) => {
+    console.log();
 
     feed.addItem({
-   title: post.node.title,
-   id: `${siteURL}/blog/${post.node.slug}`,
-   link: `${siteURL}/blog/${post.node.slug}`,
-   description: post.node.excerpt,
-   content: post.node.content.html,
-   image: post.node.featuredImage,
-   date: new Date(post.node.createdAt),
+      title: post.node.title,
+      id: `${siteURL}/blog/${post.node.slug}`,
+      link: `${siteURL}/blog/${post.node.slug}`,
+      description: post.node.excerpt,
+      content: post.node.content.html,
+      image: post.node.featuredImage,
+      date: new Date(post.node.createdAt),
+    });
   });
- });
 
-//  allPodcasts.forEach((post) => {
-//     feed.addItem({
-//      title: post.node.title,
-//      id: `${siteURL}/podcasts/${post.node.slug}`,
-//      link: `${siteURL}/podcasts/${post.node.slug}`,
-//      description: post.node.excerpt,
-//      content: post.node.content.html,
-//      image: post.node.featuredImage,
-//      date: new Date(post.node.createdAt),
-//     });
-//    });
+  //  allPodcasts.forEach((post) => {
+  //     feed.addItem({
+  //      title: post.node.title,
+  //      id: `${siteURL}/podcasts/${post.node.slug}`,
+  //      link: `${siteURL}/podcasts/${post.node.slug}`,
+  //      description: post.node.excerpt,
+  //      content: post.node.content.html,
+  //      image: post.node.featuredImage,
+  //      date: new Date(post.node.createdAt),
+  //     });
+  //    });
 
-   fs.mkdirSync(`${rssFolder}`, { recursive: true });
-   fs.writeFileSync(`${rssFolder}feed.xml`, feed.rss2());
-   fs.writeFileSync(`${rssFolder}feed.json`, feed.json1());
-   fs.writeFileSync(`${rssFolder}feed.atom`, feed.atom1());
+  fs.mkdirSync(`${rssFolder}`, { recursive: true });
+  fs.writeFileSync(`${rssFolder}feed.xml`, feed.rss2());
+  fs.writeFileSync(`${rssFolder}feed.json`, feed.json1());
+  fs.writeFileSync(`${rssFolder}feed.atom`, feed.atom1());
 }
