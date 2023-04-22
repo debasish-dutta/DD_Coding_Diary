@@ -9,7 +9,7 @@ export default async function generateRssFeed() {
 
   const siteURL = process.env.VERCEL_URL || "localhost:3000";
   const date = new Date();
-  const rssFolder = path.join(process.cwd(), "public/rss/");
+  // const rssFolder = path.join(process.cwd(), "public/rss/");
   const author = {
     name: "Debasish Dutta",
     email: "thedemoniccoder@gmail.com",
@@ -60,9 +60,10 @@ export default async function generateRssFeed() {
   //     });
   //    });
 
-  if (!fs.existsSync(`${rssFolder}`))
-    fs.mkdirSync(`${rssFolder}`, { recursive: true });
-  fs.writeFileSync(`${rssFolder}feed.xml`, feed.rss2());
-  fs.writeFileSync(`${rssFolder}feed.json`, feed.json1());
-  fs.writeFileSync(`${rssFolder}feed.atom`, feed.atom1());
+  // if (!fs.existsSync(`${rssFolder}`))
+  //   fs.mkdirSync(`${rssFolder}`, { recursive: true });
+  fs.mkdirSync("./public/rss", { recursive: true });
+  fs.writeFileSync("./public/rss/feed.xml", feed.rss2());
+  fs.writeFileSync("./public/rss/feed.xml", feed.json1());
+  fs.writeFileSync("./public/rss/feed.xml", feed.atom1());
 }
