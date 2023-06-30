@@ -3,6 +3,7 @@ import Link from 'next/link';
 import moment from 'moment';
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { anOldHope } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import { atomOneDark } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 const BlogPostCom = ({ blogPost }) => {
 
@@ -46,8 +47,8 @@ const BlogPostCom = ({ blogPost }) => {
         return <p key={index} className="mb-8 leading-relaxed">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
       case 'class':
         if (obj.children[0].type == 'code-block') {
-            console.log(obj.children[0].children[0].text);
-          return <SyntaxHighlighter language={obj.className} style={anOldHope}>
+            // console.log(obj.children[0].children[0].text);
+          return <SyntaxHighlighter showLineNumbers={true} wrapLines={true} language={obj.className} style={atomOneDark}>
             {obj.children[0].children[0].text};
           </SyntaxHighlighter>
         }

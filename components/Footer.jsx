@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCodepen, faGithub, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faCodepen, faGithub, faLinkedinIn, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import axios from 'axios';
 
 const Footer = () => {
@@ -85,7 +85,7 @@ const Footer = () => {
         <FontAwesomeIcon icon={faTwitter} className='fa-brands fa-twitter text-[1.75rem] text-blue-500'/>
       </button>
     </a>
-    <a href="https://github.com/TheDemonicCoder" target="_blank">
+    <a href="https://github.com/debasish-dutta" target="_blank">
       <button className="align-center mr-2 h-10 w-10 items-center justify-center rounded-full bg-white font-normal shadow-lg outline-none focus:outline-none hover:animate-[bounce_1.5s_ease-out_3]" type="button">
         <FontAwesomeIcon icon={faGithub} className='fa-brands fa-github text-[1.75rem] text-gray-900'/>
       </button>
@@ -95,9 +95,9 @@ const Footer = () => {
         <FontAwesomeIcon icon={faCodepen} className='fa-brands fa-codepen text-[1.75rem] text-purple-700'/>
       </button>
     </a>
-    <a href="https://www.youtube.com" target="_blank" >
-      <button className="align-center mr-2 h-10 w-10 items-center justify-center rounded-full bg-white font-normal shadow-lg outline-none focus:outline-none hover:animate-[bounce_1.5s_ease-out_3]" type="button">
-        <FontAwesomeIcon icon={faYoutube} className='fa-brands fa-youtube text-[1.75rem] text-red-500'/>
+    <a href="https://linkedin.com/in/debasish-" target="_blank" >
+      <button className="align-center h-10 w-10 items-center justify-center rounded-full bg-white font-normal shadow-lg outline-none focus:outline-none hover:animate-[bounce_1.5s_ease-out_3]" type="button">
+        <FontAwesomeIcon icon={faLinkedinIn} className='fa-brands fa-youtube text-[1.75rem] text-blue-500'/>
       </button>
     </a>
     </div>

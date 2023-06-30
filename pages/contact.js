@@ -20,10 +20,6 @@ export default function Contact() {
           console.log('Error');
           return toast.error('Please add all fields!!');
         }
-        const JSONdata = JSON.stringify(data)
-        const endpoint = '/api/contact'
-        // try {
-        //   const { data } = await axios.post(endpoint, JSONdata);
         submitMessage(data)
         .then((res) => {
             if(res.createMessages){
