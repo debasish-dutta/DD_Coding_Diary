@@ -30,13 +30,13 @@ export default function handler(req, res) {
                 })
             }
             mg.messages.create(DOMAIN, messageData).then((res) => {
-                // console.log(res);
-                res.status(200).send({
-                    message: 'Success'
-                })
+                console.log(res);
             }).catch((err) => {
                 console.log(err);
             });
+            res.status(200).send({
+                message: 'Success'
+            })
         } else if (formType === 'confirm') {
             const listAdd = {
                 address: req.body.email,
@@ -49,13 +49,13 @@ export default function handler(req, res) {
             }
             mg.lists.members.createMember(`newsletter@` + DOMAIN, listAdd).then((
                 res) => {
-                // console.log(res);
-                res.status(200).send({
-                    message: 'Success'
-                })
+                console.log(res);
             }).catch((err) => {
                 console.log(err);
             });
+            res.status(200).send({
+                message: 'Success'
+            })
         } else {
             res.status(400).json({
                 error: 'Invalid form type'

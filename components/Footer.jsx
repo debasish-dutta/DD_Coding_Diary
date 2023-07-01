@@ -12,14 +12,14 @@ const Footer = () => {
   
   const submitForm = async (e) => {
     e.preventDefault();
-    // console.log({email});
+    console.log({email});
     if(!email) {
       console.log('Error');
       return toast.error('Please add email!!');
     }
     try {
       setLoading(true);
-      const { data } = await axios.post(`/api/registration`, {email, formType: 'reg' });
+      const { data } = await axios.post(`http://localhost:3001/api/registration`, {email});
       setLoading(false);
       toast.success("Email sent! Please confirm your newsletter subscription.");
     } catch (err) {
