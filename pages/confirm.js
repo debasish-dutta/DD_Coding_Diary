@@ -3,8 +3,11 @@ import { useState } from 'react';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from 'next/router';
+
 
 const ConfirmPage = () => {
+    const router = useRouter();
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
@@ -21,6 +24,7 @@ const ConfirmPage = () => {
     try{
     const { data } = await axios.post('/api/registration', { name, phone, email, formType: 'confirm' });
     toast.success("Your newsletter subscription is confirmed.");
+    router.push('/');
     } catch (err) {
         toast.error(
             err.response
