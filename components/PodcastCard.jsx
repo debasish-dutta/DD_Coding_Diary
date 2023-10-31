@@ -6,7 +6,7 @@ const PostCard = ({ podcast }) => {
   return (
     <div className="flex w-full justify-left flex-nowrap flex-grow mb-10">
   <div className="flex grow w-full flex-col  rounded-lg bg-white shadow-lg">
-    <img className=" w-16 flex-none h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg" 
+    <img className=" w-48 flex-none h-27 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg" 
         src={podcast.featuredImage.url}
         alt={podcast.title}
         />

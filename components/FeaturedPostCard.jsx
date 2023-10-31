@@ -4,7 +4,7 @@ import Link from 'next/link';
 const FeaturedPostCard = ({blogPost}) => {
   return (
      <div className='relative container'>
-     <div className="rounded-lg bg-center bg-no-repeat bg-cover shadow-md inline-block w-full h-72" style={{ backgroundImage: `url('${blogPost.featuredImage.url}')` }}>
+     <div className="rounded-lg bg-center bg-no-repeat bg-cover shadow-md inline-block w-full" style={{ backgroundImage: `url('${blogPost.featuredImage.url}')`, paddingTop: '56.25%' }}>
      <div className="absolute inset-x-0 bottom-0 flex flex-col rounded-lg items-center justify-center">
      <Link key={blogPost.slug} href={`/blog/${blogPost.slug}`}>
        <p className="text-white text-shadow font-bold text-2xl md:text-md text-center hover:text-sky-700 cursor-pointer">{blogPost.title}</p>
